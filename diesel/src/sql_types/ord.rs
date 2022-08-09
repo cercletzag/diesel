@@ -19,6 +19,8 @@ impl<T> SqlOrd for sql_types::Nullable<T> where T: SqlOrd + SqlType<IsNull = is_
 impl SqlOrd for sql_types::Timestamptz {}
 #[cfg(feature = "postgres")]
 impl<T: SqlOrd> SqlOrd for sql_types::Array<T> {}
+#[cfg(all(feature = "postgres", feature = "uuid"))]
+impl SqlOrd for sql_types::Uuid {}
 
 #[cfg(feature = "mysql")]
 impl SqlOrd for sql_types::Datetime {}
