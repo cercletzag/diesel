@@ -6,7 +6,7 @@ use crate::pg::{Pg, PgValue};
 use crate::serialize::{self, IsNull, Output, ToSql};
 use crate::sql_types::Uuid;
 
-#[derive(AsExpression, FromSqlRow)]
+#[derive(AsExpression, FromSqlRow, PartialEq, Eq, PartialOrd, Ord)]
 #[diesel(foreign_derive)]
 #[diesel(sql_type = Uuid)]
 #[allow(dead_code)]
